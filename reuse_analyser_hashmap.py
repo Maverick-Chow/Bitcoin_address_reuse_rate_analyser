@@ -5,12 +5,12 @@ from blockchain_parser.blockchain import Blockchain
 
 csv_path = "/Volumes/HKU_drive/HKU/2023_witnessunknown"
 blocks_path = '/Volumes/HKU_drive/HKU/Bitcoin_core/blocks'
-log_path = "/Volumes/HKU_drive/2023_reuse_project/2018log.txt"
+log_path = "/Volumes/HKU_drive/2023_reuse_project/2021log.txt"
 blockchain = Blockchain(os.path.expanduser(blocks_path))
 blocks = blockchain.get_ordered_blocks(
         os.path.expanduser(blocks_path + '/index'),
-        start=501961,
-        end=556459,
+        start=663913,
+        end=716599,
         # end=769788,
         )
 
