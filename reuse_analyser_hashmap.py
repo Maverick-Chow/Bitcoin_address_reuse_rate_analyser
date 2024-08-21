@@ -46,7 +46,7 @@ for block_i, block in enumerate(blocks):
                 print("================================================================")
         cur_tx_output_set = set(cur_tx_output_set)
 
-        # Add each transaction to the BST, if already exsit, BST will increment it's occurence
+        # Add each transaction to the hashmap, if already exsit, hashmap will increment it's occurence
         for out_str in cur_tx_output_set:
             print("================================")
             print(f"Processing block {block.height}")
