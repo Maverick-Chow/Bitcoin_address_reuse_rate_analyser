@@ -5,12 +5,12 @@ from blockchain_parser.blockchain import Blockchain
 
 csv_path = "/Volumes/HKU_drive/HKU/2023_witnessunknown"
 blocks_path = '/Volumes/HKU_drive/HKU/Bitcoin_core/blocks'
-log_path = "/Volumes/HKU_drive/2023_reuse_project/2023log.txt"
+log_path = "/Volumes/HKU_drive/2023_reuse_project/2023_marchdec_log.txt"
 blockchain = Blockchain(os.path.expanduser(blocks_path))
 blocks = blockchain.get_ordered_blocks(
         os.path.expanduser(blocks_path + '/index'),
-        start=160037,
-        end=214563,
+        start=778799,
+        end=823786,
         # end=769788,
         )
 
@@ -56,10 +56,18 @@ for block_i, block in enumerate(blocks):
             t.add(out_str)
 
     # Produce outputs
-    if block_i % 15000 == 0:
+    if block_i % 10000 == 0:
         datas = t.analyse()
+        f = open(log_path, "a")
+        f.write(f"\n[Block {block.height}]\n")
+        f.write(datas)
+        f.close()
         print(datas)
 
 
+f = open(log_path, "a")
+f.write(f"\n[Block {block.height}]\n")
+f.write(t.analyse())
+f.close()
 print(t.analyse())
 # t.store_tree('/Volumes/HKU_drive/2023_reuse_project/2023_reuse_final.csv')
