@@ -9,8 +9,8 @@ log_path = "/Volumes/HKU_drive/2023_reuse_project/2023_janfeb_log.txt"
 blockchain = Blockchain(os.path.expanduser(blocks_path))
 blocks = blockchain.get_ordered_blocks(
         os.path.expanduser(blocks_path + '/index'),
-        start=160037,
-        end=214563,
+        start=769787,
+        end=778799,
         # end=769787,
         )
 t = Tree()
@@ -48,8 +48,16 @@ for block_i, block in enumerate(blocks):
     # Produce outputs
     if block_i % 8000 == 0:
         datas = t.analyse()
+        f = open(log_path, "a")
+        f.write(f"\n[Block {block.height}]\n")
+        f.write(datas)
+        f.close()
         print(datas)
 
 
+f = open(log_path, "a")
+f.write(f"\n[Block {block.height}]\n")
+f.write(t.analyse())
+f.close()
 print(t.analyse())
 # t.store_tree('/Volumes/HKU_drive/2023_reuse_project/2023_reuse_final.csv')
